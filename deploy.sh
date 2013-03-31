@@ -1,1 +1,1 @@
-cp build/libs/jersey-starterkit.war $CATALINA_HOME/webapps/
+cp build/libs/*.war $CATALINA_HOME/webapps/
