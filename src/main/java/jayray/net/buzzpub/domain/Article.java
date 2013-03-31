@@ -1,5 +1,10 @@
 package jayray.net.buzzpub.domain;
 
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,22 +25,30 @@ import java.util.List;
 //post.append("comments", new ArrayList());
 //post.append("date", new Date());
 
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.NONE)
 public class Article {
+
+    @XmlElement
     private String title;
+    @XmlElement
     private String body;
+    @XmlElement
     private String permalink;
-    private List<String> tags;
+    //    private List<String> tags;
+    @XmlElement
     private Date date;
 
     public Article() {
-        tags = new ArrayList<String>();
+//        tags = new ArrayList<String>();
     }
 
     public Article(String title, String body, String permalink, List<String> tags, Date date) {
         this.title = title;
         this.body = body;
         this.permalink = permalink;
-        this.tags = tags;
+//        this.tags = tags;
         this.date = date;
     }
 
@@ -63,13 +76,13 @@ public class Article {
         this.permalink = permalink;
     }
 
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
+//    public List<String> getTags() {
+//        return tags;
+//    }
+//
+//    public void setTags(List<String> tags) {
+//        this.tags = tags;
+//    }
 
     public Date getDate() {
         return date;
