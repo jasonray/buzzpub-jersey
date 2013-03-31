@@ -33,13 +33,13 @@ public class Article {
     @XmlElement
     private String title;
     @XmlElement
-    private String body;
-    @XmlElement
     private String permalink;
     @XmlElement
-    private List<String> tags;
+    private String body;
     @XmlElement
     private Date date;
+    @XmlElement
+    private List<String> tags;
 
     public Article() {
         tags = new ArrayList<String>();
@@ -61,14 +61,6 @@ public class Article {
         this.title = title;
     }
 
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
     public String getPermalink() {
         return permalink;
     }
@@ -77,12 +69,12 @@ public class Article {
         this.permalink = permalink;
     }
 
-    public List<String> getTags() {
-        return tags;
+    public String getBody() {
+        return body;
     }
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public Date getDate() {
@@ -93,5 +85,11 @@ public class Article {
         this.date = date;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
 
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 }
