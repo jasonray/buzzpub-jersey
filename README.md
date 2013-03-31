@@ -64,3 +64,7 @@ If you would like to use the default logging, create the logging folders:
 > sudo mkdir /restapi
 > chmod a+wr /restapi
 ````
+
+Hosted Build
+============
+[https://jasonray.ci.cloudbees.com]
