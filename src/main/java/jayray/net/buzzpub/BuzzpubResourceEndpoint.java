@@ -47,11 +47,13 @@ public class BuzzpubResourceEndpoint {
 
         List<String> tags = new ArrayList<String>();
         tags.add("t1");
+        tags.add("t2");
         Article article = new Article("My first article", "this is the body of the first article", "firstarticle", tags, new Date());
         articles.add(article);
 
         tags = new ArrayList<String>();
-        tags.add("t2");
+        tags.add("t1");
+        tags.add("t3");
         article = new Article("My second article", "this is the body of the second article", "secondarticle", tags, new Date());
         articles.add(article);
 

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 @XmlAccessorType(XmlAccessType.NONE)
 public class Articles extends ArrayList<Article> {
 
-    @XmlElement          (name = "article")
+    @XmlElement(name = "article")
     public Articles getArticles() {
         return this;
     }
