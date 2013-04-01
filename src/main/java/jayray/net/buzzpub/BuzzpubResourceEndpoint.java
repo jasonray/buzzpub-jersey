@@ -22,7 +22,7 @@ public class BuzzpubResourceEndpoint {
     private static final Logger logger = Logger.getLogger(BuzzpubResourceEndpoint.class);
 
     @GET
-    @Produces({ MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Articles getCurrentArticles() {
         logger.debug("get current articles");
 
@@ -32,13 +32,12 @@ public class BuzzpubResourceEndpoint {
         logger.debug(String.format("found %s articles", articles.size()));
         return articles;
     }
-    
+
     @Path("sample")
     @GET
-    @Produces({ MediaType.APPLICATION_JSON , MediaType.APPLICATION_XML})
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public Article getSampleArticle() {
         logger.debug("get sample articles");
-
 
         BuzzpubResourceDao dao = new BuzzpubResourceDao();
         Articles articles = dao.fetchArticles(1);
@@ -47,7 +46,6 @@ public class BuzzpubResourceEndpoint {
 
         return article;
     }
-
 
 
 }
