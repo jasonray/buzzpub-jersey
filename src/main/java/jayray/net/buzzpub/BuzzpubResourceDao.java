@@ -52,4 +52,33 @@ public class BuzzpubResourceDao {
     }
 
 
+    public Article fetchArticle(String permalink) {
+        logger.debug("fetch articles, limit = " + limit);
+
+        Articles articles = null;
+        try {
+            articleDatabase.requestStart();
+            articleDatabase.requestEnsureConnection();
+
+            postsCollection.find( new BasicDBObject("permalink", permalink)  )
+
+            DBObject sort = new BasicDBObject("date", -1);
+            DBCursor cursor = postsCollection.find(new BasicDBObject(), new BasicDBObject("title", 1).append("permalink", 1).append("body", 1).append("tags", 1).append("_id", 0)).sort(sort).limit(limit);
+
+
+            logger.debug("convert json to articles");
+            articles = new Articles();
+            Gson gson = new Gson();
+            while (cursor.hasNext()) {
+                String json = JSON.serialize(cursor.curr());
+                Article article = gson.fromJson(json, Article.class);
+                articles.add(article);
+                cursor.next();
+            }
+        } finally {
+            articleDatabase.requestDone();
+        }
+
+        return article;
+    }
 }
